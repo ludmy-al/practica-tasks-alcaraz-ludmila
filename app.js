@@ -7,7 +7,6 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use("/api", movieRouter);
 
 app.listen(PORT, async () => {
   await starDB();

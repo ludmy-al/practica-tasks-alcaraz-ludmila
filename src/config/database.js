@@ -1,6 +1,6 @@
 import { Sequelize } from "Sequelize";
 
-export const sequelize = new Sequelize("algo", "root", "", {
+export const sequelize = new Sequelize("task_users_db", "root", "", {
   host: "localhost",
   // dialect: mysql
 });
@@ -9,8 +9,8 @@ export const starDB = async () => {
   try {
     await sequelize.authenticate();
     await sequelize.sync({ force: false });
-    console.log("conexion conexion a la base de datos");
+    console.log("Conexion exitosa a la DB");
   } catch (error) {
-    console.log(Error);
+    console.Error("Error al conectar con la BD");
   }
 };
