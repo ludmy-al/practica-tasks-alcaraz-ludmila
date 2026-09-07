@@ -1,0 +1,27 @@
+{
+  "name": "practica-tasks-alcaraz-ludmila",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludmy-al/practica-tasks-alcaraz-ludmila.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ludmy-al/practica-tasks-alcaraz-ludmila/issues"
+  },
+  "homepage": "https://github.com/ludmy-al/practica-tasks-alcaraz-ludmila#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.24.3",
+    "sequelize": "^6.37.8"
+  }
+}

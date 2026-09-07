@@ -11,5 +11,5 @@ app.use("/api", taskRouter);
 
 app.listen(PORT, async () => {
   await starDB();
-  (console, console.log(`Servidor listo http:/localhost:${PORT}`));
+  console.log(`Servidor listo http://localhost:${PORT}`);
 });
