@@ -1,44 +1,15 @@
-import { PersonModel } from "";
-import { TaskModel } from "";
-import { UserModel } from "";
+import { Router } from "express";
+import { newTask, getTasks,getOneTask, deleteMovie, updateTask } from "../controllers/task.controller.js";
 
-export const createTask = async (req, res) => {
-  try {
-    const { title, description, user_id } = req.body;
+const taskRoutes = Router();
 
-    const task = await TaskModel.create({ title, description, user_id });
-    return res.status(201).json(task);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Error interno del servidor " });
-  }
-};
 
-export const getAllTasks = async (req, res) => {
-  try {
-    const task = await TaskModel.findAll({
-      attributes: {
-        exclude: ["user_id"],
-      },
-      include: [
-        {
-          model: UserModel,
-          as: "author",
-          attributes: {
-            exclude: ["password", person_id],
-          },
-          include: [
-            {
-              model: PersonModel,
-              as: "owner",
-            },
-          ],
-        },
-      ],
-    });
-    return res.status(201).json(task);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ message: "Error interno del servidor" });
-  }
-};
+taskRoutes.post("/tasks", newTask)//añadir una nueva tarea
+taskRoutes.get("/tasks", getTasks)//obtener todas las tareas
+taskRoutes.get("/tasks/:id", getOneTask)//obtener una tarea por su id
+taskRoutes.put("/tasks/:id", updateTask)//actualizar una tarea por su id
+taskRoutes.delete("/task/:id",deleteMovie)//eliminar tarea por id
+
+
+
+export { taskRoutes }

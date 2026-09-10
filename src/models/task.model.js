@@ -1,0 +1,31 @@
+import { DataTypes } from 'sequelize';
+import { sequelize } from '../config/database.js';
+
+export const Task = sequelize.define(
+    'Task', 
+    {
+        title: {
+            type: DataTypes.STRING(100),
+            unique: true,
+            allowNull: false
+        },
+
+        description: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
+        },
+
+        isCompleted: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
+    },
+    {
+        timestamps: false,
+    }
+)
