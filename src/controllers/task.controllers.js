@@ -54,7 +54,7 @@ export const newTask = async (req, res) => {
 export const getTasks = async (req, res) => {
   try{
     const task = await Task.findAll();
-    if (Task.length === 0) {
+    if (task.length === 0) {
       return res.status(200).json({ok: false, msg:"No hay tareas registradas"})
       return res.status(200).json({ok: true, msg:"Tareas encontradas", task})
     }

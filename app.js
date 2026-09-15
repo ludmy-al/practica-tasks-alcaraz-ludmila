@@ -1,12 +1,11 @@
+import "dotenv/config";
 import express from "express";
-import { strarDB } from "./src/config/database";
-import { userRouter } from "./src/routers/user.routes";
-import { TaskModel } from "./src/models/task.model";
-import { UserRoleModel } from "./src/models/user_role.model";
+import { strarDB } from "./src/config/database.js";
+import { userRouter } from "./src/routers/user.routes.js";
 import { taskRouter } from "./src/routers/task.routes.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
