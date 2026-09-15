@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../config/database.js';
+import { user } from "../models/user.model.js";
 
 export const Task = sequelize.define(
     'Task', 
@@ -21,11 +22,12 @@ export const Task = sequelize.define(
         },
 
         user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+            model: "Users",
+            key: "key",
         }
     },
     {
         timestamps: false,
     }
 )
+Task.belongsTo(user,{foreignKey:"user_id", as: "user"})
